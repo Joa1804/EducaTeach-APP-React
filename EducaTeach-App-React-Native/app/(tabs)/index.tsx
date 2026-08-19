@@ -1,98 +1,113 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      {/* Header*/}
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>CodeKids</Text>
+      </View>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      {/* Card de saudação com gradiente*/}
+      <View style={styles.greetingCard}>
+        <Text style={styles.greeting}>Olá, Maria Silva! 👋</Text>
+        <Text style={styles.greetingSubtitle}>Continue sua jornada de programação!</Text>
+
+        <View style={styles.statsRow}>
+          <View style={styles.statBox}>
+            <Text style={styles.statValue}>1250</Text>
+            <Text style={styles.statLabel}>Pontos</Text>
+          </View>
+          <View style={styles.statBox}>
+            <Text style={styles.statValue}>Nível 5</Text>
+            <Text style={styles.statLabel}>Progresso</Text>
+          </View>
+        </View>
+      </View>
+
+      {/* Trilha de aprendizado */}
+      <View style={styles.trilhaSection}>
+        <View style={styles.trilhaHeader}>
+          <Ionicons name="book" size={20} color="#212121" />
+          <Text style={styles.trilhaTitle}>Sua Trilha de Aprendizado</Text>
+        </View>
+
+        <TrilhaCard numero={1} titulo="Comandos Básicos" info="8 módulos · Iniciante" progresso={100} />
+        <TrilhaCard numero={2} titulo="Repetições e Loops" info="6 módulos · Iniciante" progresso={60} />
+      </View>
+    </ScrollView>
   );
 }
 
+function TrilhaCard({ numero, titulo, info, progresso }: { numero: number; titulo: string; info: string; progresso: number }) {
+  return (
+    <View style={styles.trilhaCard}>
+      <View style={styles.trilhaCardTop}>
+        <View style={styles.trilhaNumero}>
+          <Text style={styles.trilhaNumeroText}>{numero}</Text>
+        </View>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.trilhaCardTitulo}>{titulo}</Text>
+          <Text style={styles.trilhaCardInfo}>{info}</Text>
+        </View>
+        <Text style={styles.trilhaCardProgresso}>{progresso}%</Text>
+      </View>
+      <View style={styles.progressBarBg}>
+        <View style={[styles.progressBarFill, { width: `${progresso}%` }]} />
+      </View>
+    </View>
+  );
+}
+
+const PURPLE = '#673AB7';
+const BLUE = '#3F51B5';
+
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: { flex: 1, backgroundColor: '#F5F5F7' },
+  content: { padding: 20, paddingTop: 60, paddingBottom: 40 },
+  header: { marginBottom: 20 },
+  headerTitle: { fontSize: 24, fontWeight: 'bold', color: PURPLE },
+
+  greetingCard: {
+    backgroundColor: PURPLE, 
+    borderRadius: 20,
+    padding: 24,
+    marginBottom: 20,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  greeting: { fontSize: 22, fontWeight: 'bold', color: '#fff' },
+  greetingSubtitle: { color: '#E0D6F5', marginTop: 4, marginBottom: 20 },
+  statsRow: { flexDirection: 'row', gap: 12 },
+  statBox: {
+    backgroundColor: 'rgba(255,255,255,0.15)',
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    flex: 1,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  statValue: { color: '#fff', fontSize: 20, fontWeight: 'bold' },
+  statLabel: { color: '#E0D6F5', fontSize: 13, marginTop: 2 },
+
+  trilhaSection: { backgroundColor: '#fff', borderRadius: 20, padding: 20 },
+  trilhaHeader: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 16 },
+  trilhaTitle: { fontSize: 18, fontWeight: 'bold', color: '#212121' },
+
+  trilhaCard: {
+    backgroundColor: '#F0F2FF',
+    borderRadius: 14,
+    padding: 16,
+    marginBottom: 12,
   },
+  trilhaCardTop: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
+  trilhaNumero: {
+    width: 32, height: 32, borderRadius: 16,
+    backgroundColor: BLUE, alignItems: 'center', justifyContent: 'center',
+    marginRight: 12,
+  },
+  trilhaNumeroText: { color: '#fff', fontWeight: 'bold' },
+  trilhaCardTitulo: { fontWeight: 'bold', fontSize: 15, color: '#212121' },
+  trilhaCardInfo: { color: '#757575', fontSize: 13, marginTop: 2 },
+  trilhaCardProgresso: { fontWeight: 'bold', color: BLUE, fontSize: 15 },
+  progressBarBg: { height: 6, backgroundColor: '#D9DEFF', borderRadius: 3, overflow: 'hidden' },
+  progressBarFill: { height: '100%', backgroundColor: BLUE },
 });
