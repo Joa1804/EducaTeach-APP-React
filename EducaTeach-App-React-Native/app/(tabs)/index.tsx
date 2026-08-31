@@ -59,24 +59,110 @@ const BLUE = '#3F51B5';
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  content: { padding: 25, paddingBottom: 40 },
-  greetingCard: { backgroundColor: PURPLE, borderRadius: 20, padding: 24, marginBottom: 20 },
-  greeting: { fontSize: 22, fontWeight: 'bold', color: '#fff' },
-  greetingSubtitle: { color: '#E0D6F5', marginTop: 4, marginBottom: 20 },
-  statsRow: { flexDirection: 'row', gap: 12 },
-  statBox: { backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: 12, paddingVertical: 12, paddingHorizontal: 20, flex: 1 },
-  statValue: { color: '#fff', fontSize: 20, fontWeight: 'bold' },
-  statLabel: { color: '#E0D6F5', fontSize: 13, marginTop: 2 },
-  trilhaSection: { backgroundColor: '#fff', borderRadius: 20, padding: 20, marginBottom: 20 },
-  trilhaHeader: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 16 },
-  trilhaTitle: { fontSize: 18, fontWeight: 'bold', color: '#212121' },
-  trilhaCard: { backgroundColor: '#F0F2FF', borderRadius: 14, padding: 16, marginBottom: 12 },
-  trilhaCardTop: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
-  trilhaNumero: { width: 32, height: 32, borderRadius: 16, backgroundColor: BLUE, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
-  trilhaNumeroText: { color: '#fff', fontWeight: 'bold' },
-  trilhaCardTitulo: { fontWeight: 'bold', fontSize: 15, color: '#212121' },
-  trilhaCardInfo: { color: '#757575', fontSize: 13, marginTop: 2 },
-  trilhaCardProgresso: { fontWeight: 'bold', color: BLUE, fontSize: 15 },
-  progressBarBg: { height: 6, backgroundColor: '#D9DEFF', borderRadius: 3, overflow: 'hidden' },
-  progressBarFill: { height: '100%', backgroundColor: BLUE },
+  content: { 
+    padding: 25, 
+    paddingBottom: 40 
+  },
+  greetingCard: { 
+    backgroundColor: PURPLE, 
+    borderRadius: 20, 
+    padding: 24, 
+    marginBottom: 20
+   },
+  greeting: { 
+    fontSize: 22, 
+    fontWeight: 'bold', 
+    color: '#fff' 
+  },
+  greetingSubtitle: { 
+    color: '#E0D6F5', 
+    marginTop: 4, 
+    marginBottom: 20 
+  },
+  statsRow: { 
+    flexDirection: 'row', 
+    gap: 12 
+  },
+  statBox: { 
+    backgroundColor: 'rgba(255,255,255,0.15)', 
+    borderRadius: 12, 
+    paddingVertical: 12, 
+    paddingHorizontal: 20, 
+    flex: 1 
+  },
+  statValue: { 
+    color: '#fff', 
+    fontSize: 20, 
+    fontWeight: 'bold' 
+  },
+  statLabel: { 
+    color: '#E0D6F5', 
+    fontSize: 13, 
+    marginTop: 2 },
+  trilhaSection: { 
+    backgroundColor: '#fff', 
+    borderRadius: 20, 
+    padding: 20, 
+    marginBottom: 20 
+  },
+  trilhaHeader: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    gap: 8, 
+    marginBottom: 16 
+  },
+  trilhaTitle: { 
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    color: '#212121' 
+  },
+  trilhaCard: { 
+    backgroundColor: '#F0F2FF', 
+    borderRadius: 14, 
+    padding: 16, 
+    marginBottom: 12 
+  },
+  trilhaCardTop: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    marginBottom: 10 
+  },
+  trilhaNumero: { 
+    width: 32, 
+    height: 32, 
+    borderRadius: 16,
+     backgroundColor: BLUE, 
+     alignItems: 'center', 
+     justifyContent: 'center',
+      marginRight: 12 
+    },
+  trilhaNumeroText: { 
+    color: '#fff', 
+    fontWeight: 'bold' 
+  },
+  trilhaCardTitulo: { 
+    fontWeight: 'bold', 
+    fontSize: 15, 
+    color: '#212121' 
+  },
+  trilhaCardInfo: { 
+    color: '#757575', 
+    fontSize: 13, 
+    marginTop: 2 
+  },
+  trilhaCardProgresso: { 
+    fontWeight: 'bold', 
+    color: BLUE, 
+    fontSize: 15 
+  },
+  progressBarBg: { 
+    height: 6, 
+    backgroundColor: '#D9DEFF', 
+    borderRadius: 3, 
+    overflow: 'hidden' 
+  },
+  progressBarFill: { 
+    height: '100%', 
+    backgroundColor: BLUE 
+  },
 });
