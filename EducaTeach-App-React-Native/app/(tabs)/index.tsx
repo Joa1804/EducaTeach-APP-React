@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import AppShell from '../../app/(tabs)/appshell';
+import AppShell from '../../components/appshell';
 
 export default function HomeScreen() {
   return (
