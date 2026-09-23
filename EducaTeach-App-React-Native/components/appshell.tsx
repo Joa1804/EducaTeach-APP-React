@@ -3,6 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { useRouter, type Href } from 'expo-router';
 import type { ReactNode } from 'react';
+import React from 'react';
 
 const PURPLE = '#673AB7';
 
@@ -27,6 +28,8 @@ type MenuItemProps = {
 
 export default function AppShell({ titulo, paginaAtiva, children, }: AppShellProps) {
   const [menuAberto, setMenuAberto] = useState(true);
+  const router = useRouter();
+
   return (
     <View style={styles.app}>
       {/*MENU LATERAL */}
@@ -55,11 +58,19 @@ export default function AppShell({ titulo, paginaAtiva, children, }: AppShellPro
 
           {/* RODAPÉ */}
           <View style={styles.sidebarFooter}>
-            <Ionicons name="settings-outline" size={20} color="#757575"/>
-            <Text style={styles.footerText}>
-              Configuração
-            </Text>
+
+            {/* LOGIN */}
+            <TouchableOpacity style={styles.loginButton} onPress={() => router.push('/login')}>
+              <Ionicons name="log-in-outline" size={21} color={PURPLE} />
+              <Text style={styles.loginText}> Entrar </Text> 
+            </TouchableOpacity>
           </View>
+
+          {/* CONFIGURAÇÃO */}
+          <TouchableOpacity style={styles.configButton} onPress={() => router.push('/configuracao')}>
+            <Ionicons name="settings-outline" size={20} color="#757575" />
+            <Text style={styles.footerText}> Configuração </Text>
+          </TouchableOpacity>
         </View>
       )}
 
@@ -205,5 +216,29 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#212121',
   },
+
+ loginButton: { 
+  flexDirection: 'row', 
+  alignItems: 'center', 
+  paddingVertical: 13, 
+  paddingHorizontal: 12, 
+  borderRadius: 12, 
+  backgroundColor: '#EDE7F6', 
+  marginBottom: 8, 
+}, 
+
+  loginText: { 
+    marginLeft: 12, 
+    fontSize: 14, 
+    color: PURPLE, 
+    fontWeight: 'bold', 
+  }, 
+
+    configButton: { 
+      flexDirection: 'row',
+       alignItems: 'center', 
+       paddingHorizontal: 12, 
+       paddingVertical: 12, 
+      },  
 
 });

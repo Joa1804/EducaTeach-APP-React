@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import AppShell from '../../components/appshell';
+import React from 'react';
 
 export default function ajudarScreen() {
     return (

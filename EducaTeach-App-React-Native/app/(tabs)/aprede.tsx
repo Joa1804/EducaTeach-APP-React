@@ -3,6 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import  Svg, {Path} from 'react-native-svg';
 import AppShell from '../../components/appshell';
 import { FASES } from '@/data/frase';
+import React from 'react';
 
 export default function AprenderScreen() {
   return (

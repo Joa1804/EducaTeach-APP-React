@@ -1,6 +1,7 @@
 import { View,Text,StyleSheet,ScrollView,TextInput,TouchableOpacity,} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import AppShell from '../../components/appshell';
+import React from 'react';
 
 const BLUE = '#2563EB';
 
@@ -71,27 +72,142 @@ export default function DesafiosScreen() {
 
 
 const styles = StyleSheet.create({ 
-  container: { flex: 1, backgroundColor: '#F8FAFC', }, 
-  content: { padding: 25, paddingBottom: 40, }, 
-  /* CABEÇALHO */ 
-  cabecalho: { backgroundColor: '#FFFFFF', borderRadius: 16, padding: 20, flexDirection: 'row', alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2, }, shadowOpacity: 0.08, shadowRadius: 5, elevation: 3, }, 
-  iconeDesafio: { width: 58, height: 58, borderRadius: 29, backgroundColor: BLUE, alignItems: 'center', justifyContent: 'center', marginRight: 15, }, 
-  informacoes: { flex: 1, }, titulo: { fontSize: 23, fontWeight: 'bold', color: '#1E293B', }, professor: { marginTop: 5, fontSize: 14, color: '#64748B', }, 
-  /* PRAZO */ 
-  prazoCard: { marginTop: 18, backgroundColor: '#EFF6FF', borderRadius: 12, padding: 15, flexDirection: 'row', alignItems: 'center', }, 
-  prazoInfo: { marginLeft: 12, }, prazoTitulo: { fontSize: 13, color: '#64748B', }, data: { marginTop: 3, fontSize: 16, fontWeight: 'bold', color: '#1E293B', }, 
-  /* STATUS */ 
-  statusCard: { marginTop: 10, backgroundColor: '#FFFBEB', borderRadius: 12, padding: 15, flexDirection: 'row', alignItems: 'center', }, 
-  statusInfo: { marginLeft: 12, }, statusTitulo: { fontSize: 13, color: '#64748B', }, 
-  statusTexto: { marginTop: 3, fontSize: 16, fontWeight: 'bold', color: '#F59E0B', }, 
-  /* ENUNCIADO */ 
-  label: { marginTop: 24, fontSize: 17, fontWeight: 'bold', color: '#1E293B', }, 
-  enunciadoCard: { marginTop: 8, backgroundColor: '#FFFFFF', borderRadius: 12, padding: 18, borderWidth: 1, borderColor: '#E2E8F0', }, 
-  enunciado: { fontSize: 15, lineHeight: 23, color: '#334155', }, 
-  /* RESPOSTA */ 
-  input: { minHeight: 250, marginTop: 8, padding: 15, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: '#CBD5E1', borderRadius: 10, fontSize: 15, color: '#1E293B', }, 
+  container: { 
+    flex: 1, 
+    backgroundColor: '#F8FAFC', 
+  }, 
+  content: { 
+    padding: 25, 
+    paddingBottom: 40, 
+  }, 
+  cabecalho: { 
+    backgroundColor: '#FFFFFF', 
+    borderRadius: 16, 
+    padding: 20, 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2, }, 
+    shadowOpacity: 0.08, 
+    shadowRadius: 5, 
+    elevation: 3,
+   }, 
+  iconeDesafio: { 
+    width: 58, 
+    height: 58, 
+    borderRadius: 29, 
+    backgroundColor: BLUE, 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    marginRight: 15, 
+  }, 
+  informacoes: { 
+    flex: 1, 
+  }, 
+    titulo: { 
+      fontSize: 23, 
+      fontWeight: 'bold', 
+      color: '#1E293B', 
+    }, 
+    professor: { 
+      marginTop: 5, 
+      fontSize: 14, 
+      color: '#64748B', 
+    }, 
+  prazoCard: { 
+    marginTop: 18,
+     backgroundColor: '#EFF6FF', 
+     borderRadius: 12, 
+     padding: 15, 
+     flexDirection: 'row', 
+     alignItems: 'center',
+     }, 
+  prazoInfo: { 
+    marginLeft: 12,
+   }, 
+   prazoTitulo: { 
+    fontSize: 13,
+     color: '#64748B', 
+    }, 
+    data: { 
+      marginTop: 3, 
+      fontSize: 16, 
+      fontWeight: 'bold', 
+      color: '#1E293B', 
+    }, 
+  statusCard: { 
+    marginTop: 10, 
+    backgroundColor: '#FFFBEB', 
+    borderRadius: 12, 
+    padding: 15, 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+  }, 
+  statusInfo: { 
+    marginLeft: 12, 
+  }, statusTitulo: { 
+    fontSize: 13, 
+    color: '#64748B', 
+  }, 
+  statusTexto: { 
+    marginTop: 3, 
+    fontSize: 16, 
+    fontWeight: 'bold', 
+    color: '#F59E0B', 
+  }, 
+  label: { 
+    marginTop:
+    24, fontSize: 17, 
+    fontWeight: 'bold', 
+    color: '#1E293B', 
+  }, 
+  enunciadoCard: {
+     marginTop: 8, 
+     backgroundColor: '#FFFFFF',
+      borderRadius: 12, 
+      padding: 18, 
+      borderWidth: 1, 
+      borderColor: '#E2E8F0', 
+    }, 
+  enunciado: { 
+    fontSize: 15, 
+    lineHeight: 23, 
+    color: '#334155',
+   }, 
+  input: { 
+    minHeight: 250, 
+    marginTop: 8, 
+    padding: 15, 
+    backgroundColor: '#FFFFFF', 
+    borderWidth: 1, 
+    borderColor: '#CBD5E1', 
+    borderRadius: 10, 
+    fontSize: 15,
+     color: '#1E293B', 
+    }, 
   /* BOTÕES */ 
-  botaoEnviar: { marginTop: 20, height: 48, backgroundColor: BLUE, borderRadius: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }, 
-  botaoVoltar: { marginTop: 10, height: 48, backgroundColor: '#64748B', borderRadius: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }, 
-  botaoTexto: { marginLeft: 8, color: '#FFFFFF', fontSize: 15, fontWeight: 'bold', }, 
+  botaoEnviar: { 
+    marginTop: 20, 
+    height: 48,
+     backgroundColor: BLUE, 
+     borderRadius: 8, 
+     flexDirection: 'row', 
+     alignItems: 'center', 
+     justifyContent: 'center', 
+    }, 
+  botaoVoltar: { 
+    marginTop: 10, 
+    height: 48, 
+    backgroundColor: '#64748B', 
+    borderRadius: 8, 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+  }, 
+  botaoTexto: { 
+    marginLeft: 8, 
+    color: '#FFFFFF', 
+    fontSize: 15,
+     fontWeight: 'bold',
+     }, 
 });
