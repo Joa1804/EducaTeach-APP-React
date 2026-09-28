@@ -8,6 +8,7 @@ const PURPLE = '#6c63ff';
 export default function LoginScreen() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [mostrarSenha, setMostrarSenha] = useState(false);
 
     return (
           <LinearGradient colors={['#6c63ff', '#8b7cf6', '#c4b5fd']} style={styles.container}>
@@ -40,7 +41,7 @@ export default function LoginScreen() {
                         <View style={styles.InputContainer}>
                             <Ionicons name="lock-closed-outline" size={20} color='#94a3b8' style={styles.inputIcon}/>
                             <TextInput style={styles.input} placeholder="********" placeholderTextColor="#94A3B8" secureTextEntry={!mostrarSenha}/>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => setMostrarSenha(!mostrarSenha)}>
                                 <Ionicons  name={mostrarSenha ? "eye-off-outline" : "eye-outline"} size={21} color="#94a3b8"/>
                             </TouchableOpacity>
                         </View>
