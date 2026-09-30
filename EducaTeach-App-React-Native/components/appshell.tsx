@@ -15,7 +15,8 @@ type AppShellProps = {
     | 'projetos'
     | 'desafios'
     | 'ranking'
-    | 'ajuda';
+    | 'ajuda'
+    | 'configuracao';
   children: ReactNode;
 };
 
@@ -67,9 +68,12 @@ export default function AppShell({ titulo, paginaAtiva, children, }: AppShellPro
           </View>
 
           {/* CONFIGURAÇÃO */}
-          <TouchableOpacity style={styles.configButton} onPress={() => router.push('/configuracao')}>
-            <Ionicons name="settings-outline" size={20} color="#757575" />
-            <Text style={styles.footerText}> Configuração </Text>
+          <TouchableOpacity
+            style={[styles.configButton, paginaAtiva === 'configuracao' && styles.menuItemAtivo]}
+            onPress={() => router.push('/configuracao')}
+          >
+            <Ionicons name="settings-outline" size={20} color={paginaAtiva === 'configuracao' ? '#fff' : '#757575'} />
+            <Text style={[styles.footerText, paginaAtiva === 'configuracao' && styles.menuItemTextAtivo]}> Configuração </Text>
           </TouchableOpacity>
         </View>
       )}
